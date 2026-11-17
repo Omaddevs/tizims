@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+*.local
+.env
+.env.*
+tmp-docs
+
+# Server ma'lumotlar bazasi va maxfiy kalit
+server/data/
+
+# TypeScript keshi
+*.tsbuildinfo

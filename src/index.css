@@ -1,0 +1,443 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f3f6fb;
+  color: #0f172a;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+.page-enter {
+  animation: fadeUp 0.28s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+input[type="checkbox"] {
+  accent-color: #1b5ef3;
+}
+
+@keyframes voice-eq {
+  0%, 100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Landing: to'liq kenglikdagi sahifa konteyneri (fluid gutter, ultra-wide uchun cheklov) */
+@layer components {
+  .landing-container {
+    @apply mx-auto w-full max-w-[1840px] px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16;
+  }
+}
+
+/* ───────────────────────── TIZIMS.AI design tokens (PaceUI Ultimate Dashboard bilan 1:1) ───────────────────────── */
+:root {
+  --ts-bg: #ffffff;
+  --ts-side: #fafafa;
+  --ts-card: #ffffff;
+  --ts-tile: #f5f5f5;
+  --ts-chip: #f5f5f5;
+  --ts-hover: #f5f5f5;
+  --ts-input: #ffffff;
+  --ts-line: #e5e5e5;
+  --ts-line2: #e5e5e5;
+  --ts-fg: #0a0a0a;
+  --ts-sub: #737373;
+  --ts-muted: #a1a1a1;
+  --ts-blue: #3080ff;
+  --ts-blue2: #90c5ff;
+  --ts-blue3: #155dfc;
+  --ts-track: #f5f5f5;
+  --ts-inv: #171717;
+  --ts-invfg: #fafafa;
+  --ts-red: #e40014;
+}
+
+html.dark {
+  --ts-bg: #121212;
+  --ts-side: #171717;
+  --ts-card: #171717;
+  --ts-tile: rgba(38, 38, 38, 0.8);
+  --ts-chip: #262626;
+  --ts-hover: #262626;
+  --ts-input: rgba(255, 255, 255, 0.045);
+  --ts-line: rgba(255, 255, 255, 0.1);
+  --ts-line2: rgba(255, 255, 255, 0.15);
+  --ts-fg: #fafafa;
+  --ts-sub: #a1a1a1;
+  --ts-muted: #737373;
+  --ts-blue: #3080ff;
+  --ts-blue2: #90c5ff;
+  --ts-blue3: #155dfc;
+  --ts-track: #262626;
+  --ts-inv: #fafafa;
+  --ts-invfg: #171717;
+  --ts-red: #ff6568;
+}
+
+/* Token utilitalari — Tailwind konfiguratsiyasiga bog'liq emas, hover:/focus: variantlari ishlaydi */
+@layer utilities {
+  .bg-ts-bg { background-color: var(--ts-bg); }
+  .text-ts-bg { color: var(--ts-bg); }
+  .border-ts-bg { border-color: var(--ts-bg); }
+  .bg-ts-side { background-color: var(--ts-side); }
+  .text-ts-side { color: var(--ts-side); }
+  .border-ts-side { border-color: var(--ts-side); }
+  .bg-ts-card { background-color: var(--ts-card); }
+  .text-ts-card { color: var(--ts-card); }
+  .border-ts-card { border-color: var(--ts-card); }
+  .bg-ts-tile { background-color: var(--ts-tile); }
+  .text-ts-tile { color: var(--ts-tile); }
+  .border-ts-tile { border-color: var(--ts-tile); }
+  .bg-ts-chip { background-color: var(--ts-chip); }
+  .text-ts-chip { color: var(--ts-chip); }
+  .border-ts-chip { border-color: var(--ts-chip); }
+  .bg-ts-hover { background-color: var(--ts-hover); }
+  .text-ts-hover { color: var(--ts-hover); }
+  .border-ts-hover { border-color: var(--ts-hover); }
+  .bg-ts-input { background-color: var(--ts-input); }
+  .text-ts-input { color: var(--ts-input); }
+  .border-ts-input { border-color: var(--ts-input); }
+  .bg-ts-line { background-color: var(--ts-line); }
+  .text-ts-line { color: var(--ts-line); }
+  .border-ts-line { border-color: var(--ts-line); }
+  .divide-ts-line > :not(:last-child) { border-color: var(--ts-line); }
+  .bg-ts-line2 { background-color: var(--ts-line2); }
+  .text-ts-line2 { color: var(--ts-line2); }
+  .border-ts-line2 { border-color: var(--ts-line2); }
+  .bg-ts-fg { background-color: var(--ts-fg); }
+  .text-ts-fg { color: var(--ts-fg); }
+  .border-ts-fg { border-color: var(--ts-fg); }
+  .bg-ts-sub { background-color: var(--ts-sub); }
+  .text-ts-sub { color: var(--ts-sub); }
+  .border-ts-sub { border-color: var(--ts-sub); }
+  .bg-ts-muted { background-color: var(--ts-muted); }
+  .text-ts-muted { color: var(--ts-muted); }
+  .border-ts-muted { border-color: var(--ts-muted); }
+  .bg-ts-blue { background-color: var(--ts-blue); }
+  .text-ts-blue { color: var(--ts-blue); }
+  .border-ts-blue { border-color: var(--ts-blue); }
+  .bg-ts-blue2 { background-color: var(--ts-blue2); }
+  .text-ts-blue2 { color: var(--ts-blue2); }
+  .border-ts-blue2 { border-color: var(--ts-blue2); }
+  .bg-ts-blue3 { background-color: var(--ts-blue3); }
+  .text-ts-blue3 { color: var(--ts-blue3); }
+  .border-ts-blue3 { border-color: var(--ts-blue3); }
+  .bg-ts-track { background-color: var(--ts-track); }
+  .text-ts-track { color: var(--ts-track); }
+  .border-ts-track { border-color: var(--ts-track); }
+  .bg-ts-inv { background-color: var(--ts-inv); }
+  .text-ts-inv { color: var(--ts-inv); }
+  .border-ts-inv { border-color: var(--ts-inv); }
+  .bg-ts-invfg { background-color: var(--ts-invfg); }
+  .text-ts-invfg { color: var(--ts-invfg); }
+  .border-ts-invfg { border-color: var(--ts-invfg); }
+  .bg-ts-red { background-color: var(--ts-red); }
+  .text-ts-red { color: var(--ts-red); }
+  .border-ts-red { border-color: var(--ts-red); }
+}
+
+.ts-shell {
+  background: var(--ts-bg);
+  color: var(--ts-fg);
+  font-family: "DM Sans", Inter, system-ui, sans-serif;
+}
+
+.ts-mono {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* ── PaceUI animatsiyalari (framer-motion uslubidagi kirish effektlari) ── */
+@keyframes ts-reveal {
+  from { opacity: 0; filter: blur(4px); transform: translateY(12px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes ts-reveal-lg {
+  from { opacity: 0; filter: blur(6px); transform: translateY(24px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes ts-pop {
+  from { opacity: 0; transform: translateY(-4px) scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ts-grow-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes ts-swap {
+  from { opacity: 0; filter: blur(4px); transform: translateY(6px); }
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+.ts-reveal { animation: ts-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-reveal-lg { animation: ts-reveal-lg 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-pop { animation: ts-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-grow-y { transform-origin: 50% 100%; animation: ts-grow-y 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-grow-center { transform-origin: 50% 50%; animation: ts-grow-y 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-swap { display: inline-block; animation: ts-swap 0.35s ease both; }
+@keyframes ts-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.ts-float { animation: ts-float 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ts-reveal, .ts-reveal-lg, .ts-pop, .ts-grow-y, .ts-grow-center, .ts-swap, .ts-float { animation: none; }
+}
+
+/* Raqamlar aylanishi (NumberFlow uslubi) */
+.ts-digit { display: inline-block; height: 1em; overflow: hidden; line-height: 1; vertical-align: top; }
+.ts-digit > span { display: flex; flex-direction: column; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+.ts-digit > span > span { height: 1em; line-height: 1; text-align: center; }
+.ts-digit { width: 0.6em; }
+
+/* Striped bar pattern */
+.ts-stripes {
+  background-color: var(--ts-blue);
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.22) 0 2px, transparent 2px 7px);
+}
+
+.ts-scroll-none { scrollbar-width: none; }
+.ts-scroll-none::-webkit-scrollbar { display: none; }
+
+html.dark body {
+  background: var(--ts-bg);
+}
+
+html.dark .ts-shell * {
+  scrollbar-color: #2e2e2e transparent;
+}
+
+html.dark .ts-shell ::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+}
+
+.ts-search {
+  border-color: var(--ts-line2);
+  background: var(--ts-input);
+  color: var(--ts-sub);
+}
+
+.ts-search:hover {
+  background: var(--ts-hover);
+}
+
+.ts-kbd {
+  display: inline-flex;
+  height: 20px;
+  width: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--ts-line);
+  background: var(--ts-bg);
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 1;
+  color: var(--ts-fg);
+}
+
+.ts-event-art {
+  background:
+    radial-gradient(60% 70% at 58% 62%, rgba(255, 45, 160, 0.95) 0%, rgba(214, 28, 135, 0.75) 22%, rgba(120, 20, 110, 0.15) 52%, transparent 70%),
+    radial-gradient(40% 50% at 70% 45%, rgba(255, 140, 210, 0.7) 0%, transparent 60%),
+    radial-gradient(70% 90% at 15% 20%, rgba(90, 70, 200, 0.55) 0%, transparent 60%),
+    radial-gradient(90% 80% at 90% 10%, rgba(60, 40, 120, 0.6) 0%, transparent 60%),
+    linear-gradient(140deg, #19112c 0%, #2b1546 45%, #12091d 100%);
+}
+
+.ts-event-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 210deg at 52% 70%, transparent 0deg, rgba(255, 200, 235, 0.55) 24deg, transparent 60deg);
+  filter: blur(10px);
+  mix-blend-mode: screen;
+}
+
+/* ── Legacy (eski HR) sahifalari uchun dark rejim moslashuvi ── */
+html.dark .ts-shell .bg-white,
+html.dark .ts-shell .bg-white\/90,
+html.dark .ts-shell .bg-white\/80 { background-color: var(--ts-card); }
+html.dark .ts-shell .bg-slate-50,
+html.dark .ts-shell .bg-slate-50\/80,
+html.dark .ts-shell .bg-ink-50,
+html.dark .ts-shell .bg-\[\#f3f6fb\] { background-color: var(--ts-tile); }
+html.dark .ts-shell .bg-slate-100,
+html.dark .ts-shell .bg-slate-200 { background-color: var(--ts-chip); }
+html.dark .ts-shell .bg-brand-50,
+html.dark .ts-shell .bg-brand-50\/50,
+html.dark .ts-shell .bg-brand-50\/70 { background-color: rgba(43, 99, 246, 0.14); }
+html.dark .ts-shell .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.14); }
+html.dark .ts-shell .bg-red-50 { background-color: rgba(239, 68, 68, 0.14); }
+html.dark .ts-shell .bg-amber-50 { background-color: rgba(245, 158, 11, 0.14); }
+html.dark .ts-shell .bg-violet-50 { background-color: rgba(139, 92, 246, 0.16); }
+html.dark .ts-shell .border-slate-100,
+html.dark .ts-shell .border-slate-200,
+html.dark .ts-shell .border-slate-200\/80,
+html.dark .ts-shell .border-slate-200\/70,
+html.dark .ts-shell .border-slate-300,
+html.dark .ts-shell .border-brand-100,
+html.dark .ts-shell .border-brand-200 { border-color: var(--ts-line); }
+html.dark .ts-shell .divide-slate-100 > * + *,
+html.dark .ts-shell .divide-slate-200 > * + * { border-color: var(--ts-line); }
+html.dark .ts-shell .text-slate-900,
+html.dark .ts-shell .text-slate-800,
+html.dark .ts-shell .text-ink-900 { color: var(--ts-fg); }
+html.dark .ts-shell .text-slate-700,
+html.dark .ts-shell .text-slate-600 { color: #c4c4c4; }
+html.dark .ts-shell .text-slate-500 { color: var(--ts-sub); }
+html.dark .ts-shell .text-slate-400,
+html.dark .ts-shell .text-slate-300 { color: var(--ts-muted); }
+html.dark .ts-shell .text-brand-700,
+html.dark .ts-shell .text-brand-600 { color: #7ea2ff; }
+html.dark .ts-shell .text-emerald-700 { color: #4ade80; }
+html.dark .ts-shell .text-red-700 { color: #f87171; }
+html.dark .ts-shell .text-amber-700,
+html.dark .ts-shell .text-amber-800 { color: #fbbf24; }
+html.dark .ts-shell .hover\:bg-slate-50:hover,
+html.dark .ts-shell .hover\:bg-slate-100:hover,
+html.dark .ts-shell .hover\:bg-white:hover { background-color: var(--ts-hover); }
+html.dark .ts-shell .shadow-card,
+html.dark .ts-shell .shadow-nav { box-shadow: none; }
+html.dark .ts-shell input,
+html.dark .ts-shell select,
+html.dark .ts-shell textarea { color: var(--ts-fg); }
+html.dark .ts-shell .bg-slate-50\/40,
+html.dark .ts-shell .bg-slate-50\/60,
+html.dark .ts-shell .bg-slate-50\/90,
+html.dark .ts-shell .bg-slate-200\/80 { background-color: var(--ts-tile); }
+html.dark .ts-shell .bg-brand-50\/40,
+html.dark .ts-shell .bg-brand-50\/60,
+html.dark .ts-shell .bg-sky-50,
+html.dark .ts-shell .bg-blue-50 { background-color: rgba(43, 99, 246, 0.14); }
+html.dark .ts-shell .from-brand-50.to-white { background-image: linear-gradient(to bottom right, rgba(43, 99, 246, 0.16), var(--ts-card)); }
+html.dark .ts-shell .from-amber-50 { background-image: linear-gradient(to bottom, rgba(245, 158, 11, 0.16), rgba(245, 158, 11, 0.08)); }
+
+/* Logo: light/dark varianti (Tailwind darkMode sozlamasiga bog'liq emas) */
+.ts-logo-dark { display: none; }
+html.dark .ts-logo-dark { display: block; }
+html.dark .ts-logo-light { display: none; }
+
+/* Vazifalar sahifasidagi aniq (hex) light ranglar uchun dark moslashuv */
+html.dark .ts-shell .bg-\[\#F8FAFC\],
+html.dark .ts-shell .bg-\[\#f3f6fb\] { background-color: var(--ts-tile); }
+html.dark .ts-shell .bg-\[\#E8F1FF\],
+html.dark .ts-shell .bg-\[\#EEF3FF\] { background-color: rgba(48, 128, 255, 0.16); }
+html.dark .ts-shell .bg-\[\#FEECEC\] { background-color: rgba(239, 68, 68, 0.16); }
+html.dark .ts-shell .bg-\[\#E8F8EF\] { background-color: rgba(16, 185, 129, 0.16); }
+html.dark .ts-shell .bg-\[\#FFF4E5\] { background-color: rgba(245, 158, 11, 0.16); }
+
+/* Doim oq fonli sahifalar (landing) — dark rejimda ham to'q logo */
+html.dark .ts-light-scope .ts-logo-dark { display: none; }
+html.dark .ts-light-scope .ts-logo-light { display: block; }
+
+/* ───────────────────────── Mobil "app" ko'rinishi (< lg) ───────────────────────── */
+.ring-ts-card { --tw-ring-color: var(--ts-card); }
+
+.ts-glass {
+  background: color-mix(in srgb, var(--ts-bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+}
+.ts-glass-nav {
+  background: color-mix(in srgb, var(--ts-card) 92%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.16), 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+html.dark .ts-glass-nav { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55); }
+
+/* Asosiy "balans" kartasi — light: qora, dark: brend ko'k gradient */
+.ts-hero {
+  background: #0a0a0a;
+  color: #fff;
+}
+html.dark .ts-hero {
+  background: linear-gradient(140deg, #2f74ff 0%, #155dfc 45%, #0b2f8a 100%);
+}
+.ts-hero-pill {
+  background: #ececec;
+  color: #0a0a0a;
+}
+html.dark .ts-hero-pill { background: rgba(255, 255, 255, 0.95); }
+
+@keyframes ts-sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes ts-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.ts-sheet { animation: ts-sheet-up 0.38s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ts-fade { animation: ts-fade-in 0.25s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .ts-sheet, .ts-fade { animation: none; }
+}
+
+.ts-mobile { -webkit-tap-highlight-color: transparent; }
+.ts-mobile button, .ts-mobile a { touch-action: manipulation; }
+
+.ts-ring-tile { box-shadow: 0 0 0 4px var(--ts-tile); }
+.ts-hero-chip { background: #fff; color: #0a0a0a; }
+
+/* ── Grafiklar (dataviz palitrasi, yorug'/qorong'i alohida tanlangan) ── */
+.ts-viz {
+  --viz-1: #2a78d6;
+  --viz-1-soft: #b7d3f6;
+  --viz-2: #eb6834;
+  --viz-3: #1baf7a;
+  --viz-good: #0ca30c;
+  --viz-warning: #fab219;
+  --viz-serious: #ec835a;
+  --viz-critical: #d03b3b;
+  --viz-track: #f0f0ef;
+  --viz-grid: #ececea;
+}
+html.dark .ts-viz {
+  --viz-1: #3987e5;
+  --viz-1-soft: #1c5cab;
+  --viz-2: #d95926;
+  --viz-3: #199e70;
+  --viz-track: #262625;
+  --viz-grid: #2a2a29;
+}
